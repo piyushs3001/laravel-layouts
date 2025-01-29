@@ -23,7 +23,7 @@ class LaravelLayoutsServiceProvider extends ServiceProvider
 
         // Publish Routes (optional)
         $this->publishes([
-            __DIR__.'/../routes/web.php' => resource_path('/../routes/web.php'),
+            __DIR__.'/../routes/web.php' => base_path('/../routes/web.php'),
         ], 'routes');
     }
 
