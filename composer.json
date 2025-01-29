@@ -9,6 +9,7 @@
             "email": "piyushs.spacei@gmail.com"
         }
     ],
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "Piyush\\LaravelLayouts\\": "src/"
