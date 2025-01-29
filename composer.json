@@ -1,0 +1,34 @@
+{
+    "name": "piyush/laravel-layouts",
+    "description": "A Laravel package for creating custom layout",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Piyush",
+            "email": "piyushs.spacei@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Piyush\\LaravelLayouts\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Piyush\\LaravelLayouts\\LaravelLayoutsServiceProvider"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./packages/piyush/laravel-layouts"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^10.0",
+        "piyush/laravel-layouts": "*"
+    }
+}
