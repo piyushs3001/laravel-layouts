@@ -21,7 +21,14 @@
             ]
         }
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./packages/piyush/laravel-layouts"
+        }
+    ],
     "require": {
-        "illuminate/support": "^10.0"
+        "illuminate/support": "^10.0",
+        "piyush/laravel-layouts": "*"
     }
 }
