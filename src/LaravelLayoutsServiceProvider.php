@@ -17,7 +17,8 @@ class LaravelLayoutsServiceProvider extends ServiceProvider
 
         // Publish Views
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-layouts'),
+            __DIR__.'/../resources/views/layout.blade.php' => resource_path('views/layouts/layout.blade.php'),
+            __DIR__.'/../resources/views/pages' => resource_path('views/pages'),
         ], 'views');
     }
 
