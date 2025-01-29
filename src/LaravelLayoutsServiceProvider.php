@@ -25,8 +25,6 @@ class LaravelLayoutsServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../routes/web.php' => resource_path('/../routes/web.php'),
         ], 'routes');
-
-        $this->registerRoutes();
     }
 
     public function register()
@@ -35,10 +33,5 @@ class LaravelLayoutsServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/../config/laravel-layouts.php', 'laravel-layouts'
         );
-    }
-
-    protected function registerRoutes()
-    {
-        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
     }
 }
