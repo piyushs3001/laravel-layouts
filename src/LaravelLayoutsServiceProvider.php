@@ -20,6 +20,11 @@ class LaravelLayoutsServiceProvider extends ServiceProvider
             __DIR__.'/../resources/views/layout.blade.php' => resource_path('views/layouts/layout.blade.php'),
             __DIR__.'/../resources/views/pages' => resource_path('views/pages'),
         ], 'views');
+
+        // Publish Routes (optional)
+        $this->publishes([
+            __DIR__.'/../routes/web.php' => resource_path('routes/web.php'),
+        ], 'routes');
     }
 
     public function register()
