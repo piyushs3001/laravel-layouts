@@ -17,7 +17,7 @@ class InstallModel extends Command implements Publishable, Resolveable
 
     protected $signature = 'laravel-layouts:models {--force}';
 
-    protected $description = 'Install the models of rest auth packages.';
+    protected $description = 'Install the models of laravel layouts packages.';
 
     public function handle()
     {

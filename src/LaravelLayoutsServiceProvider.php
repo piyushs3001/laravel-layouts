@@ -5,6 +5,9 @@ namespace Piyush\LaravelLayouts;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Configuration\Middleware;
+use Piyush\LaravelLayouts\Console\InstallModel;
+use Piyush\LaravelLayouts\Console\InstallRequest;
+use Piyush\LaravelLayouts\Console\InstallSeeder;
 use Piyush\LaravelLayouts\Http\Middleware\AdminAuthenticate;
 use DirectoryIterator;
 use Illuminate\Routing\Router;
@@ -44,22 +47,30 @@ class LaravelLayoutsServiceProvider extends ServiceProvider
             ], 'laravel-layouts-models');
 
             $requests = [];
-            $files = new DirectoryIterator(__DIR__.'/Http/Requests');
+            $files = new DirectoryIterator(__DIR__.'/Http/Requests/Admin');
             foreach ($files as $file) {
                 if ($file->isFile()) {
-                    $requests[__DIR__ . '/Http/Requests/' . $file->getFilename()] = app_path("Http/Requests/{$file->getFilename()}");
+                    $requests[__DIR__ . '/Http/Requests/Admin/' . $file->getFilename()] = app_path("Http/Requests/Admin/{$file->getFilename()}");
                 }
             }
 
             $this->publishes($requests, 'laravel-layouts-requests');
 
-            // $this->commands([
-            //     InstallRequest::class,
-            //     InstallNotification::class,
-            //     InstallSeeder::class,
-            //     InstallFactory::class,
-            //     InstallModel::class,
-            // ]);
+            $controller = [];
+            $controllerFiles = new DirectoryIterator(__DIR__.'/Http/Controllers/Admin');
+            foreach ($controllerFiles as $controllerFile) {
+                if ($controllerFile->isFile()) {
+                    $controller[__DIR__ . '/Http/Controllers/Admin/' . $controllerFile->getFilename()] = app_path("Http/Controllers/Admin/{$controllerFile->getFilename()}");
+                }
+            }
+
+            $this->publishes($controller, 'laravel-layouts-controllers');
+
+            $this->commands([
+                InstallRequest::class,
+                InstallSeeder::class,
+                InstallModel::class,
+            ]);
         }
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-layouts');
