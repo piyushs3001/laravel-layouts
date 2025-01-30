@@ -32,5 +32,5 @@
         "illuminate/contracts": "^11.0",
         "yajra/laravel-datatables": "^11.0"
     },
-    "version": "1.1.0"
+    "version": "1.0.0"
 }
