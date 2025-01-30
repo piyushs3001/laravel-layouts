@@ -46,25 +46,24 @@ class LaravelLayoutsServiceProvider extends ServiceProvider
                 __DIR__ . '/Models/Admin.php' => app_path('Models/Admin.php'),
             ], 'laravel-layouts-models');
 
-            $requests = [];
-            $files = new DirectoryIterator(__DIR__.'/Http/Requests/Admin');
-            foreach ($files as $file) {
-                if ($file->isFile()) {
-                    $requests[__DIR__ . '/Http/Requests/Admin/' . $file->getFilename()] = app_path("Http/Requests/Admin/{$file->getFilename()}");
-                }
-            }
+            $this->publishes([
+                __DIR__ . '/Http/Controllers/Admin/AuthController.php' => app_path('Http/Controllers/Admin/AuthController.php'),
+                __DIR__ . '/Http/Controllers/Admin/DashboardController.php' => app_path('Http/Controllers/Admin/DashboardController.php'),
+            ], 'laravel-layouts-controllers');
 
-            $this->publishes($requests, 'laravel-layouts-requests');
+            $this->publishes([
+                __DIR__ . '/Http/Requests/Admin/AdminAuthRequest.php' => app_path('Http/Requests/Admin/AdminAuthRequest.php'),
+            ], 'laravel-layouts-requests');
 
-            $controller = [];
-            $controllerFiles = new DirectoryIterator(__DIR__.'/Http/Controllers/Admin');
-            foreach ($controllerFiles as $controllerFile) {
-                if ($controllerFile->isFile()) {
-                    $controller[__DIR__ . '/Http/Controllers/Admin/' . $controllerFile->getFilename()] = app_path("Http/Controllers/Admin/{$controllerFile->getFilename()}");
-                }
-            }
+            // $requests = [];
+            // $files = new DirectoryIterator(__DIR__.'/Http/Requests/Admin');
+            // foreach ($files as $file) {
+            //     if ($file->isFile()) {
+            //         $requests[__DIR__ . '/Http/Requests/Admin/' . $file->getFilename()] = app_path("Http/Requests/Admin/{$file->getFilename()}");
+            //     }
+            // }
 
-            $this->publishes($controller, 'laravel-layouts-controllers');
+            // $this->publishes($requests, 'laravel-layouts-requests');
 
             $this->commands([
                 InstallRequest::class,
