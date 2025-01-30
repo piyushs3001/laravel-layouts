@@ -24,7 +24,15 @@
         }
     },
     "require": {
-        "illuminate/support": "*"
+        "illuminate/support": "*",
+        "laravel/sanctum": "^4.0",
+        "yajra/laravel-datatables": "^11.0"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../laravel-layouts"
+        }
+    ],
     "version": "1.0.0"
 }
