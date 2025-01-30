@@ -13,7 +13,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Piyush\\LaravelLayouts\\": "src/"
+            "Piyush\\LaravelLayouts\\": "src/",
+            "Piyush\\LaravelLayouts\\Database\\Seeders\\": "database/seeders"
         }
     },
     "extra": {
